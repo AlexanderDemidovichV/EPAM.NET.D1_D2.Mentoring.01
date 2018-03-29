@@ -1,0 +1,14 @@
+C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.Tests\bin\Debug\EPAM.NET.Mentoring.01.Tests.dll
+C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.Tests\bin\Debug\EPAM.NET.Mentoring.01.Tests.pdb
+C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.Tests\bin\Debug\nunit.framework.dll
+C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.Tests\bin\Debug\nunit.framework.pdb
+C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.Tests\bin\Debug\nunit.framework.xml
+C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.Tests\obj\Debug\EPAM.NET.Mentoring.01.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.Tests\obj\Debug\EPAM.NET.Mentoring.01.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.Tests\obj\Debug\EPAM.NET.Mentoring.01.Tests.dll
+C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.Tests\obj\Debug\EPAM.NET.Mentoring.01.Tests.pdb
+C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.Tests\bin\Debug\Rhino.Mocks.dll
+C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.Tests\bin\Debug\Rhino.Mocks.xml
+C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.Tests\obj\Debug\EPAM.NET.Mentoring.01.Tests.csproj.CopyComplete
+C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.Tests\bin\Debug\EPAM.NET.Mentoring.01.ModuleMethods.dll
+C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.Tests\bin\Debug\EPAM.NET.Mentoring.01.ModuleMethods.pdb
