@@ -1,6 +1,0 @@
-C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.ModuleMethods\bin\Debug\EPAM.NET.Mentoring.01.ModuleMethods.dll
-C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.ModuleMethods\bin\Debug\EPAM.NET.Mentoring.01.ModuleMethods.pdb
-C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.ModuleMethods\obj\Debug\EPAM.NET.Mentoring.01.ModuleMethods.csprojResolveAssemblyReference.cache
-C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.ModuleMethods\obj\Debug\EPAM.NET.Mentoring.01.ModuleMethods.csproj.CoreCompileInputs.cache
-C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.ModuleMethods\obj\Debug\EPAM.NET.Mentoring.01.ModuleMethods.dll
-C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.ModuleMethods\obj\Debug\EPAM.NET.Mentoring.01.ModuleMethods.pdb
