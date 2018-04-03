@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+
 
 namespace EPAM.NET.Mentoring
 {
     public class FileSystemVisitor: IFileSystemVisitor
     {
-        private readonly Func<string, bool> _searchPattern = value => value.StartsWith("p");
+        private readonly Func<string, bool> _searchPattern;
 
         private readonly IFileSystemVisitorProvider _fileSystemVisitorProvider;
 
         public event EventHandler<FileSystemEventArgs> StartWalk;
         public event EventHandler<FileSystemEventArgs> FinishWalk;
-
         public event EventHandler<FileSystemEventArgs> FileFinded;
         public event EventHandler<FileSystemEventArgs> DirectoryFinded;
-
         public event EventHandler<FileSystemEventArgs> FilteredFileFinded;
         public event EventHandler<FileSystemEventArgs> FilteredDirectoryFinded;
 
@@ -24,7 +22,11 @@ namespace EPAM.NET.Mentoring
         public bool SkipNext { get; set; }
 
 
-        public System.Collections.Specialized.StringCollection log = new System.Collections.Specialized.StringCollection();
+        public List<string> log = new List<string>();
+
+        public FileSystemVisitor(IFileSystemVisitorProvider fileSystemVisitorProvider) : this(fileSystemVisitorProvider, s => true)
+        {
+        }
 
         public FileSystemVisitor(IFileSystemVisitorProvider fileSystemVisitorProvider, Func<string, bool> searchPattern)
         {
@@ -34,14 +36,14 @@ namespace EPAM.NET.Mentoring
 
         public IEnumerable<string> Visit(string root)
         {
-            OnStartWalk(new FileSystemEventArgs("start"));
+            if (root == null)
+                throw new ArgumentNullException(nameof(root));
 
-            IDirectory rootDirectoryInfo = _fileSystemVisitorProvider.GetDirectoryInfo(root);
+            OnStartWalk(new FileSystemEventArgs("start"));
 
             var result = new List<string>();
 
-            foreach (string value in WalkDirectoryTree(rootDirectoryInfo))
-            {
+            foreach (string value in WalkDirectoryTree(root)) {
                 result.Add(value);
             }
 
@@ -79,84 +81,67 @@ namespace EPAM.NET.Mentoring
             DirectoryFinded?.Invoke(this, args);
         }
 
-        private IEnumerable<string> WalkDirectoryTree(IDirectory root)
+        private IEnumerable<string> WalkDirectoryTree(string root)
         {
-            IFile[] files = null;
-
-            OnDirectoryFinded(new FileSystemEventArgs(root?.Name));
+            string[] files = null;
+            OnDirectoryFinded(new FileSystemEventArgs(root));
 
             if (Cancel)
                 yield break;
 
-            if (_searchPattern(root?.Name) && !SkipNext)
-            {
-                OnFilteredDirectoryFinded(new FileSystemEventArgs(root.Name));
+            if (_searchPattern(root) && !SkipNext) {
+                OnFilteredDirectoryFinded(new FileSystemEventArgs(root));
 
                 if (Cancel)
                     yield break;
 
                 if (!SkipNext) {
-                    yield return root.FullName;
+                    yield return root;
 
-                    try
-                    {
-                        files = _fileSystemVisitorProvider.GetFileInfo(root);
-                    }
-                    catch (UnauthorizedAccessException e)
-                    {
-                        log.Add(e.Message);
+                    files = _fileSystemVisitorProvider.GetFiles(root);
+
+                    foreach (var value in WalkThroughFiles(files)) {
+                        yield return value;
                     }
 
-                    catch (DirectoryNotFoundException e)
-                    {
-                        Console.WriteLine(e.Message);
+                    foreach (var value in WalkThroughDirectories(root)) {
+                        yield return value;
                     }
-
-                    if (files != null)
-                    {
-                        foreach (IFile fi in files)
-                        {
-                            OnFileFinded(new FileSystemEventArgs(fi?.Name));
-
-                            if (Cancel)
-                                yield break;
-
-                            if (_searchPattern(fi?.Name) && !SkipNext)
-                            {
-                                OnFilteredFileFinded(new FileSystemEventArgs(fi?.Name));
-
-                                if (Cancel)
-                                    yield break;
-
-                                if (!SkipNext)
-                                {
-                                    yield return fi?.FullName;
-                                }
-                                else
-                                {
-                                    SkipNext = false;
-                                }
-                            }
-                            SkipNext = false;
-                        }
-
-                        var subDirs = root.GetDirectories();
-
-                        foreach (IDirectory dirInfo in subDirs)
-                        {
-                            foreach (var value in WalkDirectoryTree(dirInfo))
-                            {
-                                yield return value;
-                            }
-                        }
-                    }
-
-                }
-                else {
-                    SkipNext = false;
                 }
             }
             SkipNext = false;
+        }
+
+        private IEnumerable<string> WalkThroughFiles(string[] files)
+        {
+            if (files != null) {
+                foreach (string fi in files) {
+                    OnFileFinded(new FileSystemEventArgs(fi));
+
+                    if (Cancel)
+                        yield break;
+
+                    if (_searchPattern(fi) && !SkipNext) {
+                        OnFilteredFileFinded(new FileSystemEventArgs(fi));
+
+                        if (Cancel)
+                            yield break;
+
+                        if (!SkipNext)
+                            yield return fi;
+                    }
+                    SkipNext = false;
+                }
+            }
+        }
+
+        private IEnumerable<string> WalkThroughDirectories(string root)
+        {
+            foreach (string dir in _fileSystemVisitorProvider.GetDirectories(root)) {
+                foreach (var value in WalkDirectoryTree(dir)) {
+                    yield return value;
+                }
+            }
         }
     }
 }

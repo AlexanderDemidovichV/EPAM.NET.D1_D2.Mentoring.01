@@ -42,11 +42,10 @@
   <ItemGroup>
     <Compile Include="FileSystemEventArgs.cs" />
     <Compile Include="FileSystemVisitor.cs" />
+    <Compile Include="FileSystemVisitorException.cs" />
     <Compile Include="FileSystemVisitorProvider.cs" />
-    <Compile Include="IDirectory.cs" />
-    <Compile Include="IFile.cs" />
-    <Compile Include="IFileSystemVisitor.cs" />
-    <Compile Include="IFileSystemVisitorProvider.cs" />
+    <Compile Include="Interfaces\IFileSystemVisitor.cs" />
+    <Compile Include="Interfaces\IFileSystemVisitorProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

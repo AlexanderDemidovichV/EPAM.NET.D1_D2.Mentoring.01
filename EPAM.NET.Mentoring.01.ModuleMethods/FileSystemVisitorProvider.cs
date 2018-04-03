@@ -1,30 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
-using EPAM.NET.Mentoring;
 
 namespace EPAM.NET.Mentoring
 {
-    public class FileSystemVisitorProvider //: IFileSystemVisitorProvider
+    public class FileSystemVisitorProvider : IFileSystemVisitorProvider
     {
-        public DirectoryInfo GetDirectoryInfo(string path)
+        public string[] GetDirectories(string root)
         {
-            DirectoryInfo rootDirectoryInfo;
-            try
-            {
-                rootDirectoryInfo = new DirectoryInfo(path);
-            }
-            catch (Exception e)
-            {
-                throw new ApplicationException("Not valid path", e);
-            }
-            return rootDirectoryInfo;
+            return GetEntity(root, Directory.GetDirectories);
         }
 
-        public FileInfo[] GetFileInfo(DirectoryInfo root)
+        public string[] GetFiles(string root)
         {
-            return root.GetFiles();
+            return GetEntity(root, Directory.GetFiles);
+        }
+
+        private string[] GetEntity(string root, Func<string, string[]> method)
+        {
+            try {
+                return method(root);
+            } catch (UnauthorizedAccessException e) {
+                throw new FileSystemVisitorException(e.Message, e);
+            } catch (ArgumentException e) {
+                throw new FileSystemVisitorException(e.Message, e);
+            } catch (PathTooLongException e) {
+                throw new FileSystemVisitorException(e.Message, e);
+            }catch (DirectoryNotFoundException e) {
+                throw new FileSystemVisitorException(e.Message, e);
+            }catch (IOException e) {
+                throw new FileSystemVisitorException(e.Message, e);
+            }
         }
     }
 }
