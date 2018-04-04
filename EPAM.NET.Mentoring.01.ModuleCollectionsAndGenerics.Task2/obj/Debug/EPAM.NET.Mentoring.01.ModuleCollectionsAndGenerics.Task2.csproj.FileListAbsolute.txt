@@ -1,6 +1,0 @@
-C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.ModuleCollectionsAndGenerics.Task2\bin\Debug\EPAM.NET.Mentoring.01.ModuleCollectionsAndGenerics.Task2.dll
-C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.ModuleCollectionsAndGenerics.Task2\bin\Debug\EPAM.NET.Mentoring.01.ModuleCollectionsAndGenerics.Task2.pdb
-C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.ModuleCollectionsAndGenerics.Task2\obj\Debug\EPAM.NET.Mentoring.01.ModuleCollectionsAndGenerics.Task2.csprojResolveAssemblyReference.cache
-C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.ModuleCollectionsAndGenerics.Task2\obj\Debug\EPAM.NET.Mentoring.01.ModuleCollectionsAndGenerics.Task2.csproj.CoreCompileInputs.cache
-C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.ModuleCollectionsAndGenerics.Task2\obj\Debug\EPAM.NET.Mentoring.01.ModuleCollectionsAndGenerics.Task2.dll
-C:\Users\Aliaksandr_Dzemidovi\source\repos\EPAM.NET.Mentoring.01\EPAM.NET.Mentoring.01.ModuleCollectionsAndGenerics.Task2\obj\Debug\EPAM.NET.Mentoring.01.ModuleCollectionsAndGenerics.Task2.pdb
