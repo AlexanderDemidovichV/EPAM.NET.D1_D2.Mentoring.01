@@ -7,14 +7,15 @@ namespace EPAM.NET.Mentoring
     public class IntegerCollection: IEnumerable
     {
         private List<int> list;
+
         public IntegerCollection(IEnumerable<int> collection)
         {
             if (collection == null)
                 throw new ArgumentNullException($"{nameof(collection)} is null.");
+
             list = new List<int>();
 
-            using (IEnumerator<int> enumerator = collection.GetEnumerator())
-            {
+            using (IEnumerator<int> enumerator = collection.GetEnumerator()) {
                 while (enumerator.MoveNext())
                     list.Add(enumerator.Current);
             }
@@ -30,7 +31,7 @@ namespace EPAM.NET.Mentoring
             return GetEnumerator();
         }
 
-        internal int GetElement(int index)
+        public int GetElement(int index)
         {
             return list[index];
         }
@@ -40,7 +41,7 @@ namespace EPAM.NET.Mentoring
             return list.Count;
         }
 
-        private struct IntegerEnumerator : IEnumerator<int>
+        private class IntegerEnumerator : IEnumerator<int>
         {
             private readonly IntegerCollection list;
 
@@ -48,8 +49,7 @@ namespace EPAM.NET.Mentoring
 
             private int currentElement;
 
-            internal IntegerEnumerator(IntegerCollection list)
-            {
+            public IntegerEnumerator(IntegerCollection list) {
                 this.list = list;
                 index = -1;
                 currentElement = 0;
@@ -57,12 +57,9 @@ namespace EPAM.NET.Mentoring
 
             public int Current
             {
-                get
-                {
-                    if (index < 0)
-                    {
-                        if (index == -1)
-                        {
+                get {
+                    if (index < 0) {
+                        if (index == -1) {
                             throw new InvalidOperationException("Enum not started.");
                         }
                         throw new InvalidOperationException("Enum ended.");
@@ -78,8 +75,7 @@ namespace EPAM.NET.Mentoring
                 if (index == -2)
                     return false;
                 index++;
-                if (index == list.Count())
-                {
+                if (index == list.Count()) {
                     index = -2;
                     currentElement = 0;
                     return false;
