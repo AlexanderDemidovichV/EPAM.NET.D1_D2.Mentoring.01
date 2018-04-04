@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace EPAM.NET.Mentoring._01.ModuleCollectionsAndGenerics.Task2
+namespace EPAM.NET.Mentoring
 {
-    class GenericCollection<T>: IEnumerable<T>
+    public class GenericCollection<T>: IEnumerable<T>
     {
         public IEnumerable<T> List { get; }
 
@@ -14,20 +14,14 @@ namespace EPAM.NET.Mentoring._01.ModuleCollectionsAndGenerics.Task2
 
         public IEnumerable<bool> Compare(GenericCollection<T> collection, object o, IComparer<T> comparer)
         {
-            foreach (var value in collection)
-            {
+            foreach (var value in collection) {
                 yield return comparer.Compare(value, o);
-                //yield return value.Equals(o);
             }
         }
 
         public IEnumerable<bool> Compare(GenericCollection<T> collection, object o, Comparison<T> comparison)
         {
-            foreach (var value in collection)
-            {
-                yield return new ComparisonAdaptor<T>(comparison).Compare(value, o);
-                //yield return value.Equals(o);
-            }
+            return Compare(collection, o, new ComparisonAdaptor<T>(comparison));
         }
 
         public IEnumerator<T> GetEnumerator()

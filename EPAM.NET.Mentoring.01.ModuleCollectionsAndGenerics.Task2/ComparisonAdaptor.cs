@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EPAM.NET.Mentoring._01.ModuleCollectionsAndGenerics.Task2
+namespace EPAM.NET.Mentoring
 {
     public delegate bool Comparison<T>(T lhs, object rhs);
 
