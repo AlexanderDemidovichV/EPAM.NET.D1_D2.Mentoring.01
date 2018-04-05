@@ -41,9 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileSystemEventArgs.cs" />
-    <Compile Include="FileSystemVisitor.cs" />
     <Compile Include="FileSystemVisitorException.cs" />
     <Compile Include="FileSystemVisitorProvider.cs" />
+    <Compile Include="FileSystemVisitsor.cs" />
     <Compile Include="Interfaces\IFileSystemVisitor.cs" />
     <Compile Include="Interfaces\IFileSystemVisitorProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
